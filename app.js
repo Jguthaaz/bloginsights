@@ -61,10 +61,10 @@ if(process.env.VCAP_SERVICES) {
 	var apiUsername = services.personality_insights[0].credentials.username;
 	var apiPassword = services.personality_insights[0].credentials.password;
 } else {
-	//todo - read from local file
-	var apiUrl = "wontwork till i fix the code to read credentials.json";
-	var apiUsername = "";
-	var apiPassword = "";
+	var credentials = require('./credentials.json');
+	var apiUrl = credentials.apiUrl;
+	var apiUsername = credentials.apiUsername;
+	var apiPassword = credentials.apiPassword;
 }
 insightsAPI.setAuth(apiUrl, apiUsername, apiPassword);
 					
